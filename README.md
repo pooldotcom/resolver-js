@@ -1,10 +1,10 @@
 # resolver-js
 
-Infinity Domains Resolver
+Infinity Domains by [Pool.com](https://pool.com) Resolver
 
 ## Demo
 
-https://treeder.github.io/resolver-js/
+[Demo](https://pooldotcom.github.io/resolver-js/)
 
 ## Using the library
 
