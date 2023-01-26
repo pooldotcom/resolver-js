@@ -1,6 +1,11 @@
 # resolver-js
+
 Infinity Domains Resolver
 
 ## Demo
 
-Run `python -m http.server -d demo 3000`
+https://treeder.github.io/resolver-js/
+
+### Run locally
+
+Run `python -m http.server 3000`
