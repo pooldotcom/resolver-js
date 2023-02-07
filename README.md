@@ -17,8 +17,11 @@ import { resolve } from 'https://cdn.jsdelivr.net/gh/treeder/resolver-js@main/re
 // then use it with
 let metadata = await resolve(name)
 console.log(metadata)
+
+// To resolve a wallet, check the wallets array:
+
 ```
 
 ## Run demo locally
 
-Run `python -m http.server 3000`
+Run `make run`

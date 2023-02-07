@@ -6,7 +6,9 @@ import 'https://cdn.jsdelivr.net/npm/@material/mwc-dialog@0/+esm'
 import 'https://cdn.jsdelivr.net/npm/@material/mwc-button@0/+esm'
 import 'https://cdn.jsdelivr.net/npm/@material/mwc-textfield@0/+esm'
 import { snack } from 'https://cdn.jsdelivr.net/gh/treeder/web-components@0/tr-snack/tr-snack.js'
-import { resolve } from 'https://cdn.jsdelivr.net/gh/treeder/resolver-js@main/resolver.js'
+
+import { resolve } from './resolver.js'
+// import { resolve } from 'https://cdn.jsdelivr.net/gh/treeder/resolver-js@main/resolver.js'
 
 export class ResolverPage extends LitElement {
 
@@ -19,6 +21,7 @@ export class ResolverPage extends LitElement {
         name: { type: String },
         metadata: { type: Object },
         address: { type: String },
+        answer: { type: String },
 
         fetching: { type: Boolean },
         error: { type: Object },
@@ -29,6 +32,7 @@ export class ResolverPage extends LitElement {
         this.name = ''
         this.metadata = null
         this.address = ''
+        this.answer = ''
 
         this.fetching = false
         this.error = null
@@ -56,8 +60,10 @@ export class ResolverPage extends LitElement {
     </div>
     <div>
         ${this.fetching ?
-                html`<mwc-circular-progress indeterminate></mwc-circular-progress>` : this.metadata != null ?
-                    html`<pre>${JSON.stringify(this.metadata, null, 2)}</pre>` : ''}
+                html`<mwc-circular-progress indeterminate></mwc-circular-progress>` : this.answer != null ?
+                    // html`<pre>${JSON.stringify(this.metadata, null, 2)}</pre>`
+                    html`<div style="font-size: 110%; font-weight: bold;">${this.answer}</div>`
+                    : ''}
     </div>
     </div>
         `
@@ -71,24 +77,25 @@ export class ResolverPage extends LitElement {
         let name = this.renderRoot.querySelector("#name").value
         console.log('name', name)
         try {
-            let metadata = await resolve(name)
-            console.log(metadata)
-            this.metadata = metadata
-            if (metadata.wallets && metadata.wallets.length > 0) {
-                this.address = metadata.wallets[0].address
-            } else {
-                this.address = 'no address'
-            }
-            this.fetching = false
+            this.answer = await resolve(name)
+            console.log(this.answer)
+            // this.metadata = metadata
+            // if (metadata.wallets && metadata.wallets.length > 0) {
+            //     this.address = metadata.wallets[0].address
+            // } else {
+            //     this.address = 'no address'
+            // }
         } catch (err) {
-            console.error(err)
             if (err.message.includes("invalid token ID")) {
-                snack("Invalid token ID")
-                return
+                snack("Name not found")
+                console.log(err.message)
             } else {
+                console.error(err)
                 snack(err)
             }
         }
+        this.fetching = false
+
     }
 
 }
