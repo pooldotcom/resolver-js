@@ -12,7 +12,7 @@ We've tried to make this as simple as possible and it doesn't get much simpler t
 
 ```js
 // import the resolver library
-import { resolve } from 'https://cdn.jsdelivr.net/gh/treeder/resolver-js@main/resolver.js'
+import { resolve } from 'https://cdn.jsdelivr.net/gh/treeder/resolver-js@0/resolver.js'
 
 // then use it with
 let metadata = await resolve(name)
