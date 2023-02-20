@@ -3,7 +3,7 @@ import { chainConfigs } from "./chains.js"
 
 let tldMap = {
     "ens": { tlds: ["eth"], func: resolveENS },
-    "unstoppable": { tlds: ["blockchain", "bitcoin", "nft", "wallet", "888", "dao", "x"], func: resolveUnstoppable }, // https://unstoppabledomains.freshdesk.com/support/solutions/articles/48001186821-what-are-the-different-tlds-
+    "unstoppable": { tlds: ["blockchain", "bitcoin", "nft", "wallet", "888", "dao", "x", "hi"], func: resolveUnstoppable }, // https://unstoppabledomains.freshdesk.com/support/solutions/articles/48001186821-what-are-the-different-tlds-
     // the rest will do pool lookup
 }
 
