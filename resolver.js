@@ -83,7 +83,7 @@ async function resolvePool(name, { type = '' } = {}) {
             }
         }
     }
-    return j
+    return ''
 }
 
 async function resolveENS(name, { } = {}) {

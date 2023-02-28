@@ -61,7 +61,6 @@ export class ResolverPage extends LitElement {
     <div>
         ${this.fetching ?
                 html`<mwc-circular-progress indeterminate></mwc-circular-progress>` : this.answer != null ?
-                    // html`<pre>${JSON.stringify(this.metadata, null, 2)}</pre>`
                     html`<div style="font-size: 110%; font-weight: bold;">${this.answer}</div>`
                     : ''}
     </div>
@@ -78,17 +77,14 @@ export class ResolverPage extends LitElement {
         console.log('name', name)
         try {
             this.answer = await resolve(name)
-            console.log(this.answer)
-            // this.metadata = metadata
-            // if (metadata.wallets && metadata.wallets.length > 0) {
-            //     this.address = metadata.wallets[0].address
-            // } else {
-            //     this.address = 'no address'
-            // }
+            console.log("answer:", this.answer)
+            if (!this.answer) {
+                snack("Name not found")
+            }
         } catch (err) {
             if (err.message.includes("invalid token ID")) {
-                snack("Name not found")
                 console.log(err.message)
+                snack("Name not found")
             } else {
                 console.error(err)
                 snack(err)
