@@ -75,14 +75,12 @@ async function resolvePool(name, { type = '' } = {}) {
     let r = await fetch(tokenURI)
     let j = await r.json()
     console.log(j)
-    for (const r of j.wallets) {
-        if (r.type === type) {
-            return r.address
-        }
-    }
-    for (const r of j.dns) {
-        if (r.type === type) {
-            return r.data
+    if (j.records) {
+        for (const r of j.records) {
+            console.log(r)
+            if (r.type === type) {
+                return r.value
+            }
         }
     }
     return j
