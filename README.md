@@ -1,6 +1,12 @@
 # resolver-js
 
-Infinity Domains by [Pool.com](https://pool.com) Resolver
+This resolver resolves domains on the following web3 domain platforms: 
+
+* Infinity Domains by [Pool.com](https://pool.com) Resolver
+* [ENS Domains](https://ens.domains/)
+* [Unstoppable Domains](https://unstoppabledomains.com/)
+
+More to come! If you want to see support of another one, please create an issue or a pull request. 
 
 ## Demo
 
