@@ -18,15 +18,14 @@ We've tried to make this as simple as possible and it doesn't get much simpler t
 
 ```js
 // import the resolver library
-import { resolve } from 'https://cdn.jsdelivr.net/gh/treeder/resolver-js@0/resolver.js'
+import { resolve } from 'https://cdn.jsdelivr.net/gh/pooldotcom/resolver-js@0/resolver.js'
 
 // then use it with
-let metadata = await resolve(name)
-console.log(metadata)
-
-// To resolve a wallet, check the wallets array:
-
+let answer = await resolve(name, {type:"ETH"})
+console.log(answer)
 ```
+
+* `type` in the options can be anything the particular domain provider supports, such as ETH, BTC, REDIR 
 
 ## Run demo locally
 
