@@ -1,4 +1,4 @@
-import { ethers } from "https://cdn-cors.ethers.io/lib/ethers-5.7.2.esm.min.js"
+import { ethers } from "https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.min.js"
 import { chainConfigs } from "./chains.js"
 
 let tldMap = {
